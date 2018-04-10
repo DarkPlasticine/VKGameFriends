@@ -1,0 +1,115 @@
+﻿<Window x:Class="VKGameFriends.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:local="clr-namespace:VKGameFriends"
+        x:Name="AppMainWindow"
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        MinWidth="{Binding WindowMinimumWidth}"
+        MinHeight="{Binding WindowMinimumHeight}"
+        Title="Добавлялка" Height="600" Width="900">
+
+    <Window.Resources>
+        <Style TargetType="{x:Type local:MainWindow}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Window}">
+                        <Border Padding="{Binding OuterMarginSizeThickness, FallbackValue=10}">
+                            <Grid>
+
+                                <!-- Тень от окна приложения -->
+                                <Border CornerRadius="{Binding WindowCornerRadius, FallbackValue=10}"
+                                        Background="{Binding BackgroundLightBrush}">
+                                    <Border.Effect>
+                                        <DropShadowEffect ShadowDepth="0" Opacity="0.2"/>
+                                    </Border.Effect>
+                                </Border>
+
+                                <!-- Opacity mask on grid-->
+                                <Border x:Name="Container"
+                                        Background="{StaticResource BackgroundMainBrush}"
+                                        CornerRadius="{Binding WindowCornerRadius, FallbackValue=10}"/>
+
+                                <!-- Данные главного окна -->
+                                <Grid >
+                                    <Grid.OpacityMask>
+                                        <VisualBrush Visual="{Binding ElementName=Container}"/>
+                                    </Grid.OpacityMask>
+                                    
+                                    <Grid.RowDefinitions>
+                                        <!-- Заголовок -->
+                                        <RowDefinition Height="{Binding TitleHeightGridLength, FallbackValue=42}"/>
+                                        <!-- Контент -->
+                                        <RowDefinition Height="*"/>
+                                        
+                                    </Grid.RowDefinitions>
+
+
+                                    <Grid Grid.Column="0" Panel.ZIndex="1" Background="{StaticResource BackgroundMainBrush}">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        
+                                        
+                                        <Button Command="{Binding MenuCommand}" 
+                                                Content="{iconPacks:Material Vk, Height=24, Width=24}" 
+                                                Style="{StaticResource SystemIconButton}"
+                                                />
+
+                                        <Viewbox Grid.Column="1" Margin="0" Grid.ColumnSpan="3">
+                                            <TextBlock  Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Title, FallbackValue='Добавлялка'}"
+                                                        Style="{StaticResource HeaderText}"
+                                                        />
+                                        </Viewbox>
+                                        
+                                        <StackPanel Grid.Column="2" Orientation="Horizontal">
+                                            <Button Command="{Binding MinimizeCommand}"
+                                                    Content="{iconPacks:Material WindowMinimize, Height=18, Width=18}"
+                                                    Style="{StaticResource WindowControlButton}"/>
+                                            
+                                            <Button Command="{Binding MaximizeCommand}"
+                                                    Content="{iconPacks:Material Fullscreen, Height=18, Width=18}" 
+                                                    Style="{StaticResource WindowControlButton}"/>
+                                            
+                                            <Button Command="{Binding CloseCommand}"
+                                                    Content="{iconPacks:Material Close, Height=18, Width=18}"
+                                                    Style="{StaticResource CloseAppButton}"/>
+                                        </StackPanel>
+                                        
+                                    </Grid>
+
+                                    <Border Grid.Row="1" Padding="{Binding InnerContentPadding}">
+                                        <ContentPresenter Content="{TemplateBinding Content}"/>
+                                    </Border>
+                                    
+                                </Grid>
+                                
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    
+    <WindowChrome.WindowChrome>
+        <WindowChrome 
+            ResizeBorderThickness="{Binding ResizeBorderThickness}"
+            CaptionHeight="{Binding TitleHeight}"
+            CornerRadius="0"
+            GlassFrameThickness="0"
+            />
+    </WindowChrome.WindowChrome>
+    
+    <Grid Background="{StaticResource BackgroundLightBrush}">
+        <Frame x:Name="MainFrame" Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}"/>
+    </Grid>
+</Window>

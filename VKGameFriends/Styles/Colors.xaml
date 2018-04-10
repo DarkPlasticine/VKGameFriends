@@ -1,0 +1,26 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:VKGameFriends">
+
+    <Color x:Key="BackgroundLight">#F9FBFA</Color>
+    <SolidColorBrush x:Key="BackgroundLightBrush" Color="{StaticResource BackgroundLight}" />
+
+    <Color x:Key="BackgroundMain">#282B2A</Color>
+    <SolidColorBrush x:Key="BackgroundMainBrush" Color="{StaticResource BackgroundMain}" />
+
+    <Color x:Key="BackgroundInline">#3B4F47</Color>
+    <SolidColorBrush x:Key="BackgroundInlineBrush" Color="{StaticResource BackgroundInline}" />
+
+    <Color x:Key="BackgroundGray">#B5B9C1</Color>
+    <SolidColorBrush x:Key="BackgroundGrayBrush" Color="{StaticResource BackgroundGray}" />
+
+    <Color x:Key="ForegroundText">#B5B9C1</Color>
+    <SolidColorBrush x:Key="ForegroundTextBrush" Color="{StaticResource ForegroundText}" />
+
+    <Color x:Key="ButtonColor">#40B98E</Color>
+    <SolidColorBrush x:Key="ButtonColorBrush" Color="{StaticResource ButtonColor}"/>
+
+    <Color x:Key="DisabledColor">#888B91</Color>
+    <SolidColorBrush x:Key="DisabledColorBrush" Color="{StaticResource DisabledColor}"/>
+
+</ResourceDictionary>
