@@ -43,7 +43,7 @@
                                                             VerticalAlignment="Center" 
                                                             Height="24" Width="24" 
                                                             Foreground="{Binding ElementName=LoginTextBox, Path=BorderBrush}"
-                                                            Margin="0 0 8 0"
+                                                            Margin="0 0 16 0"
                                                             />
                                 <TextBox Grid.Column="1" x:Name="LoginTextBox" Tag="Email или телефон"/>
                             </Grid>
@@ -58,7 +58,7 @@
                                                             VerticalAlignment="Center" 
                                                             Height="24" Width="24" 
                                                             Foreground="{Binding ElementName=PasswordTextBox, Path=BorderBrush}"
-                                                            Margin="0 0 8 0"
+                                                            Margin="0 0 16 0"
                                                             />
                                 <TextBox Grid.Column="1" x:Name="PasswordTextBox" Tag="Пароль"/>
                             </Grid>
