@@ -60,7 +60,7 @@
                                                             Foreground="{Binding ElementName=PasswordTextBox, Path=BorderBrush}"
                                                             Margin="0 0 16 0"
                                                             />
-                                <TextBox Grid.Column="1" x:Name="PasswordTextBox" Tag="Пароль"/>
+                                <PasswordBox Grid.Column="1" x:Name="PasswordTextBox" Tag="Пароль"/>
                             </Grid>
 
                             <Button Content="Войти"

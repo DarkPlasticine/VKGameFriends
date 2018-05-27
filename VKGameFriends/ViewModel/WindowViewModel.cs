@@ -5,6 +5,7 @@ using System.Windows.Input;
 
 namespace VKGameFriends
 {
+
     class WindowViewModel : BaseViewModel
     {
         #region Private Member
@@ -41,6 +42,7 @@ namespace VKGameFriends
         {
             get
             {
+                
                 return mWindow.WindowState == WindowState.Maximized ? 0 : mOuterMarginSize;
             }
 
