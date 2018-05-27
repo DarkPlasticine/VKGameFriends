@@ -18,7 +18,7 @@ namespace VKGameFriends
     /// <summary>
     /// Логика взаимодействия для LoginPage.xaml
     /// </summary>
-    public partial class LoginPage : Page
+    public partial class LoginPage : BasePage<LoginViewModel>
     {
         public LoginPage()
         {

@@ -40,31 +40,18 @@ namespace VKGameFriends
 
         public int OuterMarginSize
         {
-            get
-            {
-                
-                return mWindow.WindowState == WindowState.Maximized ? 0 : mOuterMarginSize;
-            }
+            get { return Borderless ? 0 : mOuterMarginSize; }
 
-            set
-            {
-                mOuterMarginSize = value;
-            }
+            set { mOuterMarginSize = value; }
         }
 
         public Thickness OuterMarginSizeThickness { get { return new Thickness(OuterMarginSize); } }
 
         public int WindowRadius
         {
-            get
-            {
-                return mWindow.WindowState == WindowState.Maximized ? 0 : mWindowRadius;
-            }
+            get { return Borderless ? 0 : mWindowRadius; }
 
-            set
-            {
-                mWindowRadius = value;
-            }
+            set { mWindowRadius = value; }
         }
 
         public CornerRadius WindowCornerRadius { get { return new CornerRadius(WindowRadius); } }
@@ -93,11 +80,7 @@ namespace VKGameFriends
 
             mWindow.StateChanged += (sender, e) =>
             {
-                OnPropertyChanged(nameof(ResizeBorderThickness));
-                OnPropertyChanged(nameof(OuterMarginSize));
-                OnPropertyChanged(nameof(OuterMarginSizeThickness));
-                OnPropertyChanged(nameof(WindowRadius));
-                OnPropertyChanged(nameof(WindowCornerRadius));
+                WindowResized();
             };
 
             MinimizeCommand = new RelayCommand(() => mWindow.WindowState = WindowState.Minimized);
@@ -106,6 +89,12 @@ namespace VKGameFriends
             MenuCommand = new RelayCommand(() => SystemCommands.ShowSystemMenu(mWindow, GetMousePosition()));
 
             var resizer = new WindowResizer(mWindow);
+
+            resizer.WindowDockChanged += (dock) =>
+            {
+                mDockPosition = dock;
+                WindowResized();
+            };
         }
         #endregion
 
@@ -115,6 +104,16 @@ namespace VKGameFriends
         {
             var position = Mouse.GetPosition(mWindow);
             return new Point(position.X + mWindow.Left, position.Y + mWindow.Top);
+        }
+
+        private void WindowResized()
+        {
+            OnPropertyChanged(nameof(Borderless));
+            OnPropertyChanged(nameof(ResizeBorderThickness));
+            OnPropertyChanged(nameof(OuterMarginSize));
+            OnPropertyChanged(nameof(OuterMarginSizeThickness));
+            OnPropertyChanged(nameof(WindowRadius));
+            OnPropertyChanged(nameof(WindowCornerRadius));
         }
 
         #endregion
