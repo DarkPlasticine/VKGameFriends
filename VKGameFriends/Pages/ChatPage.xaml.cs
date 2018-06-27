@@ -19,13 +19,11 @@ namespace VKGameFriends
     /// <summary>
     /// Логика взаимодействия для LoginPage.xaml
     /// </summary>
-    public partial class LoginPage : BasePage<LoginViewModel>, IHavePassword
+    public partial class ChatPage : BasePage<LoginViewModel>
     {
-        public LoginPage()
+        public ChatPage()
         {
             InitializeComponent();
         }
-
-        public SecureString SecurePassword => PasswordTextBox.SecurePassword;
     }
 }

@@ -6,7 +6,7 @@ namespace VKGameFriends
     public class RelayCommand : ICommand
     {
         #region Private Members
-        private Action mAction;
+        private readonly Action mAction;
         #endregion
 
         #region Public Events

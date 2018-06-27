@@ -11,7 +11,9 @@ namespace VKGameFriends
             switch((ApplicationPage)value)
             {
                 default: Debugger.Break(); return null;
+
                 case ApplicationPage.Login: return new LoginPage();
+                case ApplicationPage.Chat: return new ChatPage();
             }
         }
 

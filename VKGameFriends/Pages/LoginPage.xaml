@@ -4,6 +4,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       mc:Ignorable="d"
+      x:Name="Page"
       xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
       xmlns:local="clr-namespace:VKGameFriends"
       d:DesignHeight="700" d:DesignWidth="700"
@@ -41,7 +42,10 @@
                                                             Foreground="{Binding ElementName=LoginTextBox, Path=BorderBrush}"
                                                             Margin="0 0 16 0"
                                                             />
-                                <TextBox Grid.Column="1" x:Name="LoginTextBox" Tag="Email или телефон"/>
+                                <TextBox Grid.Column="1" 
+                                         x:Name="LoginTextBox"
+                                         Tag="Email или телефон"
+                                         Text="{Binding Email}"/>
                             </Grid>
                             
                             <Grid >
@@ -56,15 +60,16 @@
                                                             Foreground="{Binding ElementName=PasswordTextBox, Path=BorderBrush}"
                                                             Margin="0 0 16 0"
                                                             />
-                                <PasswordBox Grid.Column="1" x:Name="PasswordText" Tag="Пароль"/>
+                                <PasswordBox Grid.Column="1" x:Name="PasswordTextBox" Tag="Пароль"/>
                             </Grid>
 
                             <Button Content="Войти"
+                                    local:IsBusyProperty.Value="{Binding LoginIsRunning}"
                                     HorizontalAlignment="Center"
                                     Margin="0 32 0 32"
-                                    x:Name="ButtonLogin"
                                     Command="{Binding LoginCommand}"
-                                    CommandParameter="{Binding SecurePassword, ElementName=PasswordText}"
+                                    CommandParameter="{Binding ElementName=Page}"
+                                    
                                     />
 
                         </StackPanel>

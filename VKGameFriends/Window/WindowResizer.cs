@@ -268,8 +268,8 @@ namespace VKGameFriends
             // Get min/max structure to fill with information
             var lMmi = (MINMAXINFO)Marshal.PtrToStructure(lParam, typeof(MINMAXINFO));
 
-            // If it is the primary screen, use the rcWork variable
-            if (lPrimaryScreen.Equals(lCurrentScreen) == true)
+            // If it is the primary screen, use the rcWork variable. Убрал true (lCUrrentScreen) == true
+            if (lPrimaryScreen.Equals(lCurrentScreen))
             {
                 lMmi.ptMaxPosition.X = lPrimaryScreenInfo.rcWork.Left;
                 lMmi.ptMaxPosition.Y = lPrimaryScreenInfo.rcWork.Top;

@@ -5,6 +5,10 @@ using System.Threading.Tasks;
 using System.Web.UI.WebControls;
 using System.Windows;
 using System.Windows.Input;
+using VkNet;
+using VkNet.Enums.Filters;
+using VkNet.Model;
+using VKGameFriends.Security;
 
 namespace VKGameFriends
 {
@@ -17,6 +21,8 @@ namespace VKGameFriends
         /// The email of the user
         /// </summary>
         public string Email { get; set; }
+
+        public bool LoginIsRunning { get; set; }
 
         #endregion
 
@@ -40,7 +46,25 @@ namespace VKGameFriends
 
         public async Task Login(object parameter)
         {
-            await Task.Delay(500);
+            await RunCommand(() => this.LoginIsRunning, async () =>
+            {
+                //var vk = VkSingleton.getInstance();
+
+                var pass = (parameter as IHavePassword).SecurePassword.Unsecure();
+
+                //await vk.Api.AuthorizeAsync(new ApiAuthParams
+                //{
+                //    Settings = Settings.All,
+                //    Login = this.Email,
+                //    Password = pass,
+                //    ApplicationId = 4551110
+                //});
+
+                await Task.Delay(5000);
+
+            });
+
+           
         }
 
         #endregion

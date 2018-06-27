@@ -12,6 +12,9 @@
     <FontFamily x:Key="RobotoRegular">pack://application:,,,/Fonts/Roboto/#Roboto Regular</FontFamily>
     <FontFamily x:Key="RobotoThin">pack://application:,,,/Fonts/Roboto/#Roboto Thin</FontFamily>
     
+    <!-- Fonts Awesome-->
+    <FontFamily x:Key="FontAwesome">pack://application:,,,/Fonts/#Font Awesome 5 Free Solid</FontFamily>
+    
     <!-- Style -->
     <Style TargetType="{x:Type Control}" x:Key="BaseStyle">
         <Setter Property="FontFamily" Value="{StaticResource RobotoThin}"/>

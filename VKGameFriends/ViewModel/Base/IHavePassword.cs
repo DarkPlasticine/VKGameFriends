@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace VKGameFriends
 {
-    public enum ApplicationPage
+    public interface IHavePassword
     {
-        Login = 0,
-
-        Chat = 1
-
+        SecureString SecurePassword { get; }
     }
 }

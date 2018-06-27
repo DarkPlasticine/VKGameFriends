@@ -99,7 +99,7 @@ namespace VKGameFriends
             switch (this.PageLoadAnimation)
             {
                 case PageAnimation.SlideAndFadeInFromRight:
-                    await this.SlideAndFadeInFromRight(this.SlideSeconds * 20);
+                    await this.SlideAndFadeInFromRight(this.SlideSeconds);
                     break;
             }
 
