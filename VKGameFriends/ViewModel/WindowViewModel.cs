@@ -28,7 +28,7 @@ namespace VKGameFriends
         #region Public Properties
 
         public double WindowMinimumWidth { get; set; } = 550;
-        public double WindowMinimumHeight { get; set; } = 700;
+        public double WindowMinimumHeight { get; set; } = 500;
 
         public bool Borderless { get { return (mWindow.WindowState == WindowState.Maximized || mDockPosition != WindowDockPosition.Undocked); } }
         
@@ -60,7 +60,7 @@ namespace VKGameFriends
 
         public GridLength TitleHeightGridLength { get { return new GridLength(TitleHeight + ResizeBorder); } }
 
-        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Chat;
+        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Login;
 
         #endregion
 

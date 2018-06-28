@@ -143,15 +143,15 @@
                                         Source={x:Static local:ViewModelLocator.Instance}}"                            
             />
 
-            --><!-- Side Menu --><!--
-            <local:SideMenuControl 
-                Width="300" 
-                local:AnimateSlideInFromLeftProperty.Value="{Binding ApplicationViewModel.SideMenuVisible, 
-                                     Source={x:Static local:ViewModelLocator.Instance}}">
+            -->
+            
+            <!-- Side Menu -->
+            <local:SideMenuControl Width="300">
+                <Button Content="as" />
 
-                <local:ChatListControl />
+            </local:SideMenuControl>
 
-            </local:SideMenuControl>-->
+            
 
             <Frame x:Name="MainFrame" Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}" 
                    Grid.Column="1"/>

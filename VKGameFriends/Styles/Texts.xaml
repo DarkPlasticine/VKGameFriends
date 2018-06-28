@@ -77,9 +77,6 @@
         <Setter Property="Foreground" Value="{StaticResource ForegroundTextBrush}"/>
         <Setter Property="local:MonitorPasswordProperty.Value" Value="True"/>
 
-        
-
-
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type PasswordBox}">
@@ -113,7 +110,6 @@
                                 </Style>
                             </d:TextBlock.Style>-->
                         </TextBlock>
-
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
@@ -127,7 +123,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
+
     <Style TargetType="{x:Type TextBlock}" x:Key="LoadingText" BasedOn="{StaticResource BaseTextBlockStyle}">
         <Setter Property="FontFamily" Value="{StaticResource FontAwesome}"/>
         <Setter Property="Text" Value="&#xf1ce;"/>
@@ -148,13 +144,13 @@
             </Storyboard>
         </Style.Resources>
         <Style.Triggers>
-                <DataTrigger Binding="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=IsVisible}" Value="True">
-                    <DataTrigger.EnterActions>
-                        <BeginStoryboard Name="LoadStoryboard" Storyboard="{StaticResource Loading}"/>
-                    </DataTrigger.EnterActions>
-                    <DataTrigger.ExitActions>
-                        <RemoveStoryboard BeginStoryboardName="LoadStoryboard" />
-                    </DataTrigger.ExitActions>
+            <DataTrigger Binding="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=IsVisible}" Value="True">
+                <DataTrigger.EnterActions>
+                    <BeginStoryboard Name="LoadStoryboard" Storyboard="{StaticResource Loading}"/>
+                </DataTrigger.EnterActions>
+                <DataTrigger.ExitActions>
+                    <RemoveStoryboard BeginStoryboardName="LoadStoryboard" />
+                </DataTrigger.ExitActions>
             </DataTrigger>
         </Style.Triggers>
     </Style>
